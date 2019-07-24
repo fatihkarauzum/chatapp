@@ -1,0 +1,17 @@
+{
+  "name": "chatapp",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Fatih <fatih47154@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chat",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/fatih47154/chatapp",
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}
