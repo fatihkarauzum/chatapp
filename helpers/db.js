@@ -6,7 +6,7 @@ module.exports = () => {
     mongoose.set('useFindAndModify', false);
 
     mongoose.connection.on('open', () => {
-        console.log('MongoDB: Connected');
+        // console.log('MongoDB: Connected');
     });
 
     mongoose.connection.on('error', (err) => {
