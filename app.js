@@ -5,8 +5,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+
+// redisStore
+const redisStore = require('./helpers/redisStore')
+
+// dotenv
 const dotenv = require('dotenv');
 dotenv.config();
+
+// routes
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -33,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 // express-session.js
 app.use(session({
+  store: redisStore,
   secret: process.env.SESSION_SECRET_KEY,
   resave: false,
   saveUninitialized: true,
