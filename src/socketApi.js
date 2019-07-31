@@ -26,6 +26,10 @@ io.on('connection', socket => {
     console.log('a user logged in with name: ' + socket.request.user.name);
 
     Users.upsert(socket.id, socket.request.user);
+
+    socket.on('disconnect', () => {
+        Users.remove(socket.request.user._id);
+    });
 });
 
 module.exports = socketApi;

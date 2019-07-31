@@ -25,3 +25,15 @@ Users.prototype.upsert = function (connectionId, meta){
         }
     );
 };
+
+Users.prototype.remove = function (_id){
+    this.client.hdel(
+        'online',
+        _id,
+        err => {
+            if(err){
+                console.log(err);
+            }
+        }
+    );
+};
