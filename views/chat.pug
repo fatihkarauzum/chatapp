@@ -18,8 +18,11 @@ block content
           .tabArea
             .tab-left(ng-show="activeTab === 1")      
               ul.people
-                li.person(ng-repeat="room in roomList")
-                  span.name {{ room.roomName }}
+                li.person(
+                  ng-repeat="room in roomList",
+                  ng-click="switchRoom(room)"
+                )
+                  span.name {{ room.name }}
             .tab-right(ng-show="activeTab === 2")      
               ul.people
                 li.person(ng-repeat="user in onlineList")
@@ -28,10 +31,10 @@ block content
                   span.preview &nbsp;
           .bottom
             button(ng-click="newRoom()") New Room
-        .right
+        .right(ng-show="chatClicked")
           .top
             span
-              span.name Dog Woofson
+              span.name {{ chatName }}
           .chat.active-chat
             .bubble.you
               span Hakan Aydın
