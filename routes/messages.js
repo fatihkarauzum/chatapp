@@ -5,8 +5,11 @@ const router = express.Router();
 const Messages = require('../src/lib/Messages');
 
 router.get('/list', (req, res, next) => {
-    Messages.list();
-    res.json({ data: 'test' });
+    setTimeout(() => {
+        Messages.list(req.query.roomId, messages => {
+            res.json(messages);        
+        });
+    }, 1000);
 });
 
 module.exports = router;
